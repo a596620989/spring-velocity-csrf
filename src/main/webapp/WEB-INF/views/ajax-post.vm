@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8">
+	<title>csrf demo</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	#CSRFTokenMeta()
+	<script src="jquery.js"></script>
+</head>
+
+<body style="padding-top:70px">
+
+<script>
+	
+
+	#CSRFTokenMetaReference()
+
+	$.ajax({
+        type : "POST",
+        url:'/ajax-post',
+        dateType:"json",
+        data:{val: 'val111', key2: 'value2'},
+        success : function(data){
+        },error:function(data) {
+			console.log("error");
+		}
+	});
+	
+	//multi ajax request
+	$.ajax({
+        type : "POST",
+        url:'/ajax-post',
+        dateType:"json",
+        data:{val: 'val111', key2: 'value2'},
+        success : function(data){
+        },error:function(data) {
+			console.log("error");
+		}
+	});
+</script>
+
+</body>
+</html>

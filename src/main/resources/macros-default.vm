@@ -1,0 +1,26 @@
+#**
+ * CSRFToken
+ * Generate a input field of type 'hidden' of token to avoid CSRF attack 
+ *#
+#macro( CSRFToken $id)
+	#if(!$id || $id == "")
+		#set($id="xToken")
+	#end
+	<input type="hidden" id="$id" name="xToken" value="$csrfTool.getToken($request)"/>
+#end
+
+## currently id is not used
+#macro( CSRFTokenMeta $id)
+	<meta name="_csrf" content="$csrfTool.getToken($request)"/>
+	<!-- default header name is X-CSRF-TOKEN -->
+	<meta name="_csrf_header" content="xToken"/>
+#end
+
+## please put following code into <script/> tag
+#macro( CSRFTokenMetaReference)
+	var token = $("meta[name='_csrf']").attr("content");
+  	var header = $("meta[name='_csrf_header']").attr("content");
+  	$(document).ajaxSend(function(e, xhr, options) {
+    	xhr.setRequestHeader(header, token);
+  	});
+#end

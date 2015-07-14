@@ -1,3 +1,7 @@
+CSRF soluation based on https://github.com/JavanLu/javan-blog/tree/master/springmvc-csrf-velocity with following case added
+1. ajax-post/get
+2. multipart/form-data
+
 spring-csrf-velocity
 ==========
 
